@@ -44,39 +44,39 @@ export default function BorrowInterface() {
     contracts: [
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "positions",
         args: [address],
       },
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "calculateDynamicLTV",
         args: [address],
       },
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "totalBorrowAssets",
       },
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "totalBorrowShares",
       },
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "totalSupplyAssets",
       },
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "totalSupplyShares",
       },
       {
         abi: mainAbi,
-        address: "0xC4EC8E64157Ff9B5140966e6764F8B55319Ad08B",
+        address: "0x4C086Bb080792308C74e5B804907e7D35779a56A",
         functionName: "calculateHealth",
         args: [address],
       },
@@ -110,7 +110,7 @@ export default function BorrowInterface() {
 
   const availableToBorrow = normalizeBN((conversionPrice as string) ?? "0", 18)
     .multipliedBy(normalizeBN((positionData?.[1].result as string) ?? "0", 18))
-    .minus(userBorrowAssets);
+    .minus(userBorrowAssets || "0");
 
   const networth = normalizeBN((conversionPrice as string) ?? "0", 18).minus(
     userBorrowAssets
@@ -330,11 +330,21 @@ export default function BorrowInterface() {
                 <div className="text-sm text-neutral-500 text-right">
                   <div className="flex justify-between">
                     <span>Available to borrow:</span>
-                    <span>{availableToBorrow.toFixed(2)} usde</span>
+                    <span>
+                      {availableToBorrow.isNaN()
+                        ? "0"
+                        : availableToBorrow.toFixed(2)}{" "}
+                      usde
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Your borrowed value:</span>
-                    <span>{userBorrowAssets.toFixed(2)} usde</span>
+                    <span>
+                      {userBorrowAssets.isNaN()
+                        ? "0"
+                        : userBorrowAssets.toFixed(2)}{" "}
+                      usde
+                    </span>
                   </div>
                 </div>
                 <Button
@@ -411,7 +421,7 @@ export default function BorrowInterface() {
             <Card className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white p-6 shadow-lg">
               <h2 className="text-lg font-semibold mb-4">NET WORTH </h2>
               <div className="text-5xl font-bold mb-4">
-                $ {networth.toFixed(2)}
+                $ {networth.isNaN() ? "0" : networth.toFixed(2)}
               </div>
               <h2 className="text-md font-semibold mb-4">Credit Score </h2>
               <div
@@ -441,7 +451,11 @@ export default function BorrowInterface() {
                 <div className="text-lg mt-2">Health</div>
                 <p
                   className={`
-                  ${userBorrowAssets.isZero() ? "text-neutral-400" : ""}
+                  ${
+                    userBorrowAssets.isZero() || userBorrowAssets.isNaN()
+                      ? "text-neutral-400"
+                      : ""
+                  }
                   ${health.toNumber() < 1.5 ? "text-red-500" : ""}
                   ${
                     health.toNumber() >= 1.5 && health.toNumber() <= 2
@@ -451,7 +465,9 @@ export default function BorrowInterface() {
                   ${health.toNumber() > 2 ? "text-green-500" : ""}
                 `}
                 >
-                  {userBorrowAssets.isZero() ? "0" : health.toFixed(2)}
+                  {userBorrowAssets.isZero() || userBorrowAssets.isNaN()
+                    ? "0"
+                    : health.toFixed(2)}
                 </p>
               </div>
             </Card>
