@@ -4,3 +4,15 @@
 [submodule "avs/contracts/lib/forge-std"]
 	path = avs/contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "main/lib/chainlink-brownie-contracts"]
+	path = main/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "main/lib/forge-std"]
+	path = main/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "main/lib/openzeppelin-contracts"]
+	path = main/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "main/lib/solidity-bytes-utils"]
+	path = main/lib/solidity-bytes-utils
+	url = https://github.com/GNSPS/solidity-bytes-utils

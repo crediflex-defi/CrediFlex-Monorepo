@@ -20,6 +20,7 @@ remappings = [
 mainnet = "${MAINNET_RPC_URL}"
 holesky = "${HOLESKY_RPC_URL}"
 sepolia = "${SEPOLIA_RPC_URL}"
+arbitrumSepolia = "${SEPOLIA_RPC_URL}"
 anvil = "${ANVIL_RPC_URL}"
 
 [etherscan]
