@@ -1,5 +1,5 @@
 {
-	"name": "undercollateralized-borrow-lending",
+	"name": "crediflex-main",
 	"version": "1.0.0",
 	"description": "A smart contract project for undercollateralized borrowing and lending on Ethereum, utilizing Foundry for development.",
 	"author": "Ammar Robbani <amr.robb@gmail.com>",
@@ -23,7 +23,6 @@
 	"keywords": [],
 	"license": "ISC",
 	"dependencies": {
-		"@pythnetwork/pyth-sdk-solidity": "^4.0.0",
 		"dotenv": "~16.3.1",
 		"envfile": "~6.18.0",
 		"ethers": "~5.7.1",

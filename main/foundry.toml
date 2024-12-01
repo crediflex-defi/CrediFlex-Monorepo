@@ -6,7 +6,6 @@ fs_permissions = [{ access = "read-write", path = "./"}]
 remappings = [
     "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
     "@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/src/",
-    "@pythnetwork/pyth-sdk-solidity/=node_modules/@pythnetwork/pyth-sdk-solidity",
     "solidity-bytes-utils/=lib/solidity-bytes-utils/contracts/"
   ]
 

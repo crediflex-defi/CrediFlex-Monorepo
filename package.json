@@ -1,0 +1,35 @@
+{
+	"name": "crediflex",
+	"version": "1.0.0",
+	"private": true,
+	"workspaces": [
+		"avs",
+		"main",
+		"web"
+	],
+	"scripts": {
+		"chain": "npm run chain --workspace main ",
+		"install:avs": "npm install --workspace avs --legacy-peer-deps",
+		"install:main": "npm install --workspace main --legacy-peer-deps",
+		"install:web": "npm install --workspace web --legacy-peer-deps",
+		"install:all": "npm run install:avs && npm run install:main && npm run install:web",
+		"start:operator": "npm run start:operator --workspace avs",
+		"start:traffic": "npm run start:traffic --workspace avs",
+		"start:main": "npm run start --workspace main",
+		"start:web": "npm run start --workspace web",
+		"build:avs": "npm run build --workspace avs",
+		"build:main": "npm run build --workspace main",
+		"build:web": "npm run build --workspace web",
+		"build:all": "npm run build:avs && npm run build:main && npm run build:web",
+		"deploy:avs": "npm run deploy:core --workspace avs && npm run deploy:crediflex --workspace avs",
+		"deploy:main": "npm run deploy --workspace main",
+		"deploy:all": "npm run deploy:avs && npm run deploy:main",
+		"test:avs": "npm run test --workspace avs",
+		"test:main": "npm run test --workspace main",
+		"extract:abis": "npm run extract:abis --workspace avs",
+		"dev": "npm run dev --workspace web",
+		"lint": "npm run lint --workspace web"
+	},
+	"dependencies": {},
+	"devDependencies": {}
+}

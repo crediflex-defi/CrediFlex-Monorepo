@@ -263,19 +263,14 @@ export const processNewTasksByLastEvent = async () => {
 	}
 };
 
-// const main = async () => {
-// 	// await registerOperator();
-// 	monitorNewTasks().catch((error) => {
-// 		console.error("Error monitoring tasks:", error);
-// 	});
-// };
+const main = async () => {
+	//run this one time, comment it after its registered
+	// await registerOperator();
+	monitorNewTasks().catch((error) => {
+		console.error("Error monitoring tasks:", error);
+	});
+};
 
-// main().catch((error) => {
-// 	console.error("Error in main function:", error);
-// });
-
-// signAndRespondToTask(1, [
-// 	"0x8757F328371E571308C1271BD82B91882253FDd1",
-// 	BigInt(1234567890),
-// 	BigInt(9876543210),
-// ]);
+main().catch((error) => {
+	console.error("Error in main function:", error);
+});
