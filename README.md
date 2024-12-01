@@ -47,6 +47,9 @@ Crediflex is deployed on the **Arbitrum-Sepolia testnet**, while the credit scor
 - **Presentation**: [Google Slides](https://docs.google.com/presentation/d/1jzdRC5VvygoHkkKyZcC22kcvkAqC7YxsAfnADTBuLmU/edit#slide=id.g1f1ce5643d3_0_0)
 - **Web App**: [Crediflex App](https://crediflex.vercel.app/)
 
+![Home - Crediflex Home](./public/crediflex-home.png)
+![Dashboard - Crediflex Dashboard](./public/crediflex-dashboard.png)
+
 ---
 
 ## Credit Scoring (C Score)
@@ -128,6 +131,19 @@ The **C Score** is a unique metric that evaluates a user’s on-chain activity u
    - Support additional assets and chains for lending and borrowing.
 5. **Automated Monitoring**:
    - Implement mechanisms to track and update C Scores in real time.
+
+---
+
+## Note on Repository Structure
+
+This repository is structured as a **monorepo** for the hackathon, consolidating the frontend, backend, and contracts for simplicity and ease of use.
+
+For the split repository structure (designed for long-term scalability), you can explore the following GitHub organization:
+
+- **Organization**: [Crediflex DeFi](https://github.com/crediflex-defi)
+  - [Main Contract Repository](https://github.com/crediflex-defi/crediflex-main)
+  - [AVS Repository](https://github.com/crediflex-defi/crediflex-avs)
+  - [Frontend Repository](https://github.com/crediflex-defi/crediflex-web)
 
 ---
 
